@@ -1,0 +1,109 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+import type { Aereo } from './interface';
+import PlaneList from './PlaneList.vue';
+
+const tipiAereo = ["Passeggieri", "Cargo", "Militare", "Privato"]
+let id = 0;
+let removedIds: number[] = [];
+const modelloAereo = ref('')
+const compagniaAereo = ref('')
+const annoAereo = ref(0)
+const tipoAereo = ref<"Passeggieri" | "Cargo" | "Militare" | "Privato">('Cargo')
+const capacitaPasseggeriAereo = ref(0)
+const autonomiaVoloAereo = ref(0)
+const statoRiparazioneAereo = ref(false)
+const maxVelocitaAereo = ref(0)
+const lastCheckYearAereo = ref(0)
+const planes = ref<Aereo[]>([]);
+function addPlane() {
+  let newId = removedIds.pop();
+  if (newId != 0 && !newId) {
+    newId = id++;
+  }
+  planes.value.push({
+    id: newId,
+    modello: modelloAereo.value,
+    compagnia: compagniaAereo.value,
+    anno: annoAereo.value,
+    tipo: tipoAereo.value,
+    capacitaPasseggeri : capacitaPasseggeriAereo.value,
+    autonomiaVolo : autonomiaVoloAereo.value,
+    statoRiparazione : statoRiparazioneAereo.value,
+    maxVelocita : maxVelocitaAereo.value,
+    lastCheckYear : lastCheckYearAereo.value,
+  })
+  resetForm();
+}
+function resetForm(){
+  modelloAereo.value = ''
+  compagniaAereo.value = ''
+  annoAereo.value = 0
+  tipoAereo.value = 'Cargo'
+  capacitaPasseggeriAereo.value = 0
+  autonomiaVoloAereo.value = 0
+  statoRiparazioneAereo.value = false
+  maxVelocitaAereo.value = 0
+  lastCheckYearAereo.value = 0
+}
+function handleDelete(aereo: Aereo){
+    planes.value = planes.value.filter((el) => el.id !== aereo.id);
+}
+</script>
+
+<template>
+  <form @submit.prevent="addPlane" class="form">
+    <label for="modello">
+      Modello:
+      <input v-model ="modelloAereo" id="modello" type="text">
+    </label>
+    <label for="compagnia">
+      compagnia:
+      <input v-model ="compagniaAereo" id="compagnia" type="text">
+    </label>
+    <label for="annocostruzione">
+      Anno costruzione:
+      <input v-model ="annoAereo" id="annocostruzione" type="number">
+    </label>
+    <label for="tipo">
+      Tipo:
+      <select v-model ="tipoAereo" id="tipo" name="scelta">
+          <option v-for="tipo in tipiAereo" :value="tipo">{{ tipo }}</option>
+      </select>
+    </label>
+    <label for="capacitaPasseggeriAereo">
+      capacità aereo:
+      <input v-model ="capacitaPasseggeriAereo" id="capacitaPasseggeriAereo" type="number">
+    </label>
+    <label for="autonomiaAereo">
+      autonomia aereo:
+      <input v-model ="autonomiaVoloAereo" id="autonomiaAereo" type="number">
+    </label>
+    <label for="statoRiparazioneAereo"> 
+      <input v-model="statoRiparazioneAereo" type="checkbox" id="statoRiparazioneAereo" name="statoRiparazioneAereo" value="true">
+      Aereo in riparazione
+    </label>
+    <label for="maxVelocitaAereo">
+      velocità massima aereo:
+      <input v-model ="maxVelocitaAereo" id="maxVelocitaAereo" type="number">
+    </label>
+    <label for="lastCheckYearAereo">
+      anno dell'ultimo controllo dell'aereo:
+      <input v-model ="lastCheckYearAereo" id="lastCheckYearAereo" type="number">
+    </label>
+    <button type="submit">aggiungi aereo</button>
+  </form>
+  <hr>
+  <p>Tot aerei: {{planes.length}}</p>
+  <hr>
+  <PlaneList :aerei="planes" @delete="handleDelete"/>
+</template>
+
+<style>
+.form{
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+</style>

@@ -1,0 +1,10 @@
+# Dipendenze dei progetti (non vanno mai caricate)
+node_modules/
+
+# Cartelle di build
+dist/
+build/
+
+# File di configurazione locali
+.env
+.env.local
