@@ -1,18 +1,23 @@
-import FirstComponent from '@/components/FirstComponent.vue'
-import HomeComponent from '@/components/HomeComponent.vue'
 import ProfileComponent from '@/components/ProfileComponent.vue'
+import AboutUsView from '@/view/AboutUsView.vue'
+import HomeView from '@/view/HomeView.vue'
+import UsersView from '@/view/UsersView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path:'/',
-      component: FirstComponent
+      path:'/home',
+      component: HomeView
     },
     {
-      path:'/home',
-      component: HomeComponent
+      path:'/about-us',
+      component: AboutUsView
+    },
+    {
+      path:'/user',
+      component: UsersView
     },
     {
       path:'/profile',
