@@ -1,7 +1,6 @@
 <template>
     <header>
         <nav>
-            <router-link to="/">first</router-link><br>
             <router-link to="/home">home</router-link><br>
             <router-link to="/profile">profile</router-link><br>
             <router-link to="/users">users</router-link>
