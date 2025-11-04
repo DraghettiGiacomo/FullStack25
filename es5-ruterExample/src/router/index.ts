@@ -1,6 +1,7 @@
 import ProfileComponent from '@/components/ProfileComponent.vue'
 import AboutUsView from '@/view/AboutUsView.vue'
 import HomeView from '@/view/HomeView.vue'
+import UserDetailsView from '@/view/UserDetailsView.vue'
 import UsersView from '@/view/UsersView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -16,8 +17,13 @@ const router = createRouter({
       component: AboutUsView
     },
     {
-      path:'/user',
+      path:'/users',
       component: UsersView
+    },
+    {
+      path:'/users/:id',
+      name: 'user-details',
+      component: UserDetailsView
     },
     {
       path:'/profile',

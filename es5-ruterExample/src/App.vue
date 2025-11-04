@@ -1,20 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Header from './components/Header.vue';
+
+</script>
 
 <template>
   <main>
-    <nav>
-      <router-link to="/">first</router-link><br>
-      <router-link to="/home">home</router-link><br>
-      <router-link to="/profile">profile</router-link>
-    </nav>
-    <h1>H1 dentro App.vue</h1>
-    <router-view />
+    <Header></Header>
+    <main>
+      <h1>H1 dentro App.vue</h1>
+      <router-view />
+    </main>
   </main>
 </template>
-
-<style>
-.router-link-active {
-  color: rgb(94, 0, 182);
-  font-weight: bold;
-}
-</style>
