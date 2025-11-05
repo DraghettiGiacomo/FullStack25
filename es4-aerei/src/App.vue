@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import type { Aereo } from './interface';
 import PlaneList from './PlaneList.vue';
 
@@ -46,6 +46,18 @@ function resetForm(){
   maxVelocitaAereo.value = 0
   lastCheckYearAereo.value = 0
 }
+const percAereiMilitari = computed(() => {
+  const militari = planes.value.filter((aereo) => aereo.tipo === "Militare");
+  return planes.value.length ? (militari.length / planes.value.length) * 100 : 0;
+});
+const mediaAutonomia = computed(() => {
+  const total = planes.value.reduce((acc, aereo) => acc + aereo.autonomiaVolo, 0);
+  return planes.value.length ? total / planes.value.length : 0;
+});
+const mediaCapacitaPasseggeri = computed(() => {
+  const total = planes.value.reduce((acc, aereo) => acc + aereo.capacitaPasseggeri, 0);
+  return planes.value.length ? total / planes.value.length : 0;
+});
 function handleDelete(aereo: Aereo){
     planes.value = planes.value.filter((el) => el.id !== aereo.id);
 }
@@ -95,6 +107,9 @@ function handleDelete(aereo: Aereo){
   </form>
   <hr>
   <p>Tot aerei: {{planes.length}}</p>
+  <p>% aerei militari: {{ percAereiMilitari }}%</p>
+  <p>media autonomia: {{ mediaAutonomia }}</p>
+  <p>media capacità passegieri: {{ mediaCapacitaPasseggeri }}</p>
   <hr>
   <PlaneList :aerei="planes" @delete="handleDelete"/>
 </template>

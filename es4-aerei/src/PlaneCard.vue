@@ -7,7 +7,7 @@ const emit = defineEmits(['delete']);
 </script>
 
 <template>
-    <div class="card">
+    <div class="card" :class="aereo.tipo.toLowerCase()">
         <h3>{{aereo.modello}}</h3>
         <p>{{aereo.compagnia}}</p>
         <p>{{aereo.anno}}</p>
@@ -30,5 +30,17 @@ const emit = defineEmits(['delete']);
 .card *{
     margin: 0;
     padding: 0;
+}
+.passeggieri{
+    background-color: rgb(152, 210, 229);
+}
+.cargo{
+    background-color: lightgreen;
+}
+.militare{
+    background-color: lightcoral;
+}
+.privato{
+    background-color: lightgoldenrodyellow;
 }
 </style>
