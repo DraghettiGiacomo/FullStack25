@@ -3,14 +3,26 @@ import { ref } from 'vue';
 import type { Aereo } from './interface';
 import PlaneCard from './PlaneCard.vue';
 const tipiAereo = ["Passeggieri", "Cargo", "Militare", "Privato"]
-const filtroTipo = ref<"Passeggieri"| "Cargo"| "Militare"| "Privato">()
 const props = defineProps<{
     aerei: Aereo[]
 }>();
 
 const emit = defineEmits(['delete']); 
+
+const filtroTipo = ref<"Passeggieri"| "Cargo"| "Militare"| "Privato">()
+const filtroModello = ref('')
 function handleDelete(aereo: Aereo) {
     emit('delete', aereo);
+}
+const aereiDaMostrare = ref(props.aerei); 
+function applicaFiltri(){
+    console.log(filtroTipo.value);
+    console.log(filtroModello.value);
+    aereiDaMostrare.value = props.aerei.filter((aereo) => {
+        const matchTipo = filtroTipo.value ? aereo.tipo === filtroTipo.value : true;
+        const matchModello = filtroModello.value ? aereo.modello.toLowerCase().includes(filtroModello.value.toLowerCase()) : true;
+        return matchTipo && matchModello;
+    });
 }
 </script>
 <template>
@@ -24,12 +36,13 @@ function handleDelete(aereo: Aereo) {
         </div>
         <div>
             <label for="filtroModel">Modello:</label>
-            <input id="filtroModel" type="text">
+            <input v-model="filtroModello" id="filtroModel" type="text">
         </div>
+        <button @click="applicaFiltri">Applica filtri</button>
     </div>
     <hr>
     <div class="listAerei">
-        <PlaneCard v-for="_ in aerei" :aereo="_" @delete="handleDelete"/>
+        <PlaneCard v-for="_ in aereiDaMostrare" :aereo="_" @delete="handleDelete"/>
     </div>
 </template>
 
