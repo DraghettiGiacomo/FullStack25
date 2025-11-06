@@ -12,5 +12,7 @@ onMounted(() => {
 
 <template>
     <p>sono la view user</p>
+    <input type="text" placeholder="Cerca utente...">
+    <hr>
     <UserList :users="allUsers"/>
 </template>
