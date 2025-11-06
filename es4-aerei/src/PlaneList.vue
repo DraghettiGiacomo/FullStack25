@@ -56,18 +56,39 @@ function applicaFiltri(){
         <button @click="applicaFiltri">Applica filtri</button>
     </div>
     <hr>
+    <div class="ordinamentoPlane">
+        <h3>oridnamento lista aerei</h3>
+        <div>
+            <label for="ordinamento">Ordina lista:</label>
+            <select id="ordinamento" name="scelta">
+                <option value="false">anno</option>
+                <option value="true">velocità</option>
+                <option value="true">autonomia</option>
+            </select>
+        </div>
+        <div>
+            <label for="ordinamento">Ordinamento:</label>
+            <select id="ordinamento" name="scelta">
+                <option value="false">crescente</option>
+                <option value="true">decrescente</option>
+            </select>
+        </div>
+        <button>Ordina</button>
+    </div>
+    <hr>
     <div class="listAerei">
         <PlaneCard v-for="_ in aerei" :aereo="_" @delete="handleDelete"/>
     </div>
 </template>
 
 <style>
-.listAerei, .filtri{
+.listAerei, .filtri, .ordinamentoPlane{
     display: flex;
     gap: 1.2em;
     flex-wrap: wrap;
 }
-.filtri h3{
+.filtri h3,
+.ordinamentoPlane h3{
     margin: 0;
     padding: 0;
 }
