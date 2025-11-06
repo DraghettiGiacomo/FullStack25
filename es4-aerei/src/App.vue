@@ -76,7 +76,7 @@ function handleDelete(aereo: Aereo){
       </label>
       <label for="annocostruzione">
         Anno costruzione:
-        <input v-model ="annoAereo" id="annocostruzione" type="number">
+        <input v-model ="annoAereo" id="annocostruzione" min="0" type="number">
       </label>
       <label for="tipo">
         Tipo:
@@ -86,11 +86,11 @@ function handleDelete(aereo: Aereo){
       </label>
       <label for="capacitaPasseggeriAereo">
         capacità aereo:
-        <input v-model ="capacitaPasseggeriAereo" id="capacitaPasseggeriAereo" type="number">
+        <input v-model ="capacitaPasseggeriAereo" id="capacitaPasseggeriAereo" min="0" type="number">
       </label>
       <label for="autonomiaAereo">
         autonomia aereo:
-        <input v-model ="autonomiaVoloAereo" id="autonomiaAereo" type="number">
+        <input v-model ="autonomiaVoloAereo" id="autonomiaAereo" min="0" type="number">
       </label>
       <label for="statoRiparazioneAereo"> 
         <input v-model="statoRiparazioneAereo" type="checkbox" id="statoRiparazioneAereo" name="statoRiparazioneAereo" value="true">
@@ -98,11 +98,11 @@ function handleDelete(aereo: Aereo){
       </label>
       <label for="maxVelocitaAereo">
         velocità massima aereo:
-        <input v-model ="maxVelocitaAereo" id="maxVelocitaAereo" type="number">
+        <input v-model ="maxVelocitaAereo" id="maxVelocitaAereo" min="0" type="number">
       </label>
       <label for="lastCheckYearAereo">
         anno dell'ultimo controllo dell'aereo:
-        <input v-model ="lastCheckYearAereo" id="lastCheckYearAereo" type="number">
+        <input v-model ="lastCheckYearAereo" id="lastCheckYearAereo" min="0" type="number">
       </label>
       <button type="submit">aggiungi aereo</button>
     </form>

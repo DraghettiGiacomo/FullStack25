@@ -40,11 +40,11 @@ function applicaFiltri(){
         </div>
         <div>
             <label for="filtroCapacita">Capacità:</label>
-            <input id="filtroCapacita" type="number">
+            <input id="filtroCapacita" min="0" type="number">
         </div>
         <div>
             <label for="filtroAutonomia">Autonomia:</label>
-            <input id="filtroAutonomia" type="number">
+            <input id="filtroAutonomia" min="0" type="number">
         </div>
         <div>
             <label for="filtroStatoManutenzione">Stato manutenzione:</label>
