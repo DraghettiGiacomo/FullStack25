@@ -3,7 +3,8 @@
         <nav>
             <router-link to="/home">home</router-link><br>
             <router-link to="/profile">profile</router-link><br>
-            <router-link to="/users">users</router-link>
+            <router-link to="/users">users</router-link><br>    
+            <router-link to="/about">about us</router-link>
         </nav>
     </header>
 </template>

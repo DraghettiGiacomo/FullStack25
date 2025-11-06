@@ -26,6 +26,30 @@ const users: User[] = [
     },
     {
         id: 1,
+        name: 'Luigi Neri',
+        username: 'LuigiN',
+        email: 'ln@gmail.com',
+        address: {
+            street: 'via Tubotti 33',
+            city: 'Milano',
+            zipcode: '45666',
+        },
+        website: 'luigineri.photo',
+    },
+    {
+        id: 2,
+        name: 'Angela Birbante',
+        username: 'AngelaB',
+        email: 'ab@gmail.com',
+        address: {
+            street: 'via Arancino 1',
+            city: 'Palermo',
+            zipcode: '33628',
+        },
+        website: 'angelabirbante.photo',
+    },
+    {
+        id: 3,
         name: 'Mario Gialli',
         username: 'MarioG',
         email: 'mg@gmail.com',

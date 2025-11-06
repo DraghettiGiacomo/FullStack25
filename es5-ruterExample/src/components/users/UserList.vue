@@ -20,14 +20,29 @@ function navigateToUser(userId: number){
 <template>
     <ul>
         <li v-for="user in users" @click="navigateToUser(user.id)">
-            <span>{{ user.name }}</span><br>
+            <span><b>{{ user.name }}</b></span><br>
             <span>{{ user.username }}</span>
         </li>
     </ul>
 </template>
 
 <style>
+ul{
+    margin: 0;
+    padding: 0;
+}
 li{
+    list-style: none;
     cursor: pointer;
+    margin-bottom: 1em;
+    padding: 1em;
+    border: 1px solid gray;
+    border-radius: 1em;
+}
+li:hover{
+    border: 1px solid greenyellow;
+}
+li span:last-child{
+    color: gray;
 }
 </style>
