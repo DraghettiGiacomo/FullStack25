@@ -50,6 +50,7 @@ function applicaFiltri(){
 .listAerei, .filtri{
     display: flex;
     gap: 1.2em;
+    flex-wrap: wrap;
 }
 .filtri h3{
     margin: 0;
