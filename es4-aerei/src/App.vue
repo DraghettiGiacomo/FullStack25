@@ -64,57 +64,68 @@ function handleDelete(aereo: Aereo){
 </script>
 
 <template>
-  <form @submit.prevent="addPlane" class="form">
-    <label for="modello">
-      Modello:
-      <input v-model ="modelloAereo" id="modello" type="text">
-    </label>
-    <label for="compagnia">
-      compagnia:
-      <input v-model ="compagniaAereo" id="compagnia" type="text">
-    </label>
-    <label for="annocostruzione">
-      Anno costruzione:
-      <input v-model ="annoAereo" id="annocostruzione" type="number">
-    </label>
-    <label for="tipo">
-      Tipo:
-      <select v-model ="tipoAereo" id="tipo" name="scelta">
-          <option v-for="tipo in tipiAereo" :value="tipo">{{ tipo }}</option>
-      </select>
-    </label>
-    <label for="capacitaPasseggeriAereo">
-      capacità aereo:
-      <input v-model ="capacitaPasseggeriAereo" id="capacitaPasseggeriAereo" type="number">
-    </label>
-    <label for="autonomiaAereo">
-      autonomia aereo:
-      <input v-model ="autonomiaVoloAereo" id="autonomiaAereo" type="number">
-    </label>
-    <label for="statoRiparazioneAereo"> 
-      <input v-model="statoRiparazioneAereo" type="checkbox" id="statoRiparazioneAereo" name="statoRiparazioneAereo" value="true">
-      Aereo in riparazione
-    </label>
-    <label for="maxVelocitaAereo">
-      velocità massima aereo:
-      <input v-model ="maxVelocitaAereo" id="maxVelocitaAereo" type="number">
-    </label>
-    <label for="lastCheckYearAereo">
-      anno dell'ultimo controllo dell'aereo:
-      <input v-model ="lastCheckYearAereo" id="lastCheckYearAereo" type="number">
-    </label>
-    <button type="submit">aggiungi aereo</button>
-  </form>
-  <hr>
-  <p>Tot aerei: {{planes.length}}</p>
-  <p>% aerei militari: {{ percAereiMilitari }}%</p>
-  <p>media autonomia: {{ mediaAutonomia }}</p>
-  <p>media capacità passegieri: {{ mediaCapacitaPasseggeri }}</p>
+  <div class="formERiassunto">
+    <form @submit.prevent="addPlane" class="form">
+      <label for="modello">
+        Modello:
+        <input v-model ="modelloAereo" id="modello" type="text">
+      </label>
+      <label for="compagnia">
+        compagnia:
+        <input v-model ="compagniaAereo" id="compagnia" type="text">
+      </label>
+      <label for="annocostruzione">
+        Anno costruzione:
+        <input v-model ="annoAereo" id="annocostruzione" type="number">
+      </label>
+      <label for="tipo">
+        Tipo:
+        <select v-model ="tipoAereo" id="tipo" name="scelta">
+            <option v-for="tipo in tipiAereo" :value="tipo">{{ tipo }}</option>
+        </select>
+      </label>
+      <label for="capacitaPasseggeriAereo">
+        capacità aereo:
+        <input v-model ="capacitaPasseggeriAereo" id="capacitaPasseggeriAereo" type="number">
+      </label>
+      <label for="autonomiaAereo">
+        autonomia aereo:
+        <input v-model ="autonomiaVoloAereo" id="autonomiaAereo" type="number">
+      </label>
+      <label for="statoRiparazioneAereo"> 
+        <input v-model="statoRiparazioneAereo" type="checkbox" id="statoRiparazioneAereo" name="statoRiparazioneAereo" value="true">
+        Aereo in riparazione
+      </label>
+      <label for="maxVelocitaAereo">
+        velocità massima aereo:
+        <input v-model ="maxVelocitaAereo" id="maxVelocitaAereo" type="number">
+      </label>
+      <label for="lastCheckYearAereo">
+        anno dell'ultimo controllo dell'aereo:
+        <input v-model ="lastCheckYearAereo" id="lastCheckYearAereo" type="number">
+      </label>
+      <button type="submit">aggiungi aereo</button>
+    </form>
+    <hr>
+    <div>
+      <p>Tot aerei: {{planes.length}}</p>
+      <p>% aerei militari: {{ percAereiMilitari }}%</p>
+      <p>media autonomia: {{ mediaAutonomia }}</p>
+      <p>media capacità passegieri: {{ mediaCapacitaPasseggeri }}</p>
+    </div>
+  </div>
   <hr>
   <PlaneList :aerei="planes" @delete="handleDelete"/>
 </template>
 
 <style>
+.formERiassunto{
+  display: flex;
+  gap: 1em;
+}
+.formERiassunto div{
+  flex-grow: 1;
+}
 .form{
   width: fit-content;
   display: flex;

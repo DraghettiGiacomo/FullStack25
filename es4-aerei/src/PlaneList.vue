@@ -38,6 +38,21 @@ function applicaFiltri(){
             <label for="filtroModel">Modello:</label>
             <input v-model="filtroModello" id="filtroModel" type="text">
         </div>
+        <div>
+            <label for="filtroCapacita">Capacità:</label>
+            <input id="filtroCapacita" type="number">
+        </div>
+        <div>
+            <label for="filtroAutonomia">Autonomia:</label>
+            <input id="filtroAutonomia" type="number">
+        </div>
+        <div>
+            <label for="filtroStatoManutenzione">Stato manutenzione:</label>
+            <select id="filtroStatoManutenzione" name="scelta">
+                <option value="false">false</option>
+                <option value="true">true</option>
+            </select>
+        </div>
         <button @click="applicaFiltri">Applica filtri</button>
     </div>
     <hr>
