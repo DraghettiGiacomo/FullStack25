@@ -51,7 +51,7 @@ public abstract class Utente {
     public void setSaldoPenali(double saldoPenali) {
         this.saldoPenali = saldoPenali;
     }
- 
+
     public abstract int getMaxPrestitiContemporanei();
 
     public abstract double getSconto();
