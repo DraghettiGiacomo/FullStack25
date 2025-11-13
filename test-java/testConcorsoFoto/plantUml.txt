@@ -1,0 +1,40 @@
+@startuml
+class Foto{
+    private long id;
+    private String title;
+    private String descrizione;
+    private LocalDate dataInvio;
+}
+
+abstract class Partecipante{
+    private long id;
+    private int punteggio;
+    private List<Foto> foto;
+}
+class Fotografo{
+    private long id;
+    private String nikname;
+    private String paese;
+    private int eta;
+}
+class Collettivo{
+    private long id;
+    private String groupName;
+    private List<Fotografo> fotografi;
+}
+Partecipante <|-- Fotografo
+Partecipante <|-- Collettivo
+class Concorso{
+    private long id;
+    private String nome;
+    private String tema;
+    private String criterioValutazione;
+    private List<Partecipanti> partecipanti;
+    private List<Foto> fotoInviate;
+    registraEvento() /* devo usare una classe valutazione per capire come fare la valutazione */
+    aggiornaPunteggiPartecipanti()
+    filtriClassifica() /*ordinata per punteggio, in caso di partità per nome*/
+    creaClassifica()
+}
+interface Valutazione{}
+@enduml
