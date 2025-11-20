@@ -36,5 +36,22 @@ class Concorso{
     filtriClassifica() /*ordinata per punteggio, in caso di partità per nome*/
     creaClassifica()
 }
-interface Valutazione{}
+interface Valutazione{
+    void applicaEvento(Concorso concorso, Foto foto, String tipoEvento);
+}
+class RegolaPopolarita{}
+class RegolaGiuria{}
+class RegolaMista{}
+Valutazione <|.. RegolaPopolarita
+Valutazione <|.. RegolaGiuria
+Valutazione <|.. RegolaMista
+
+class GestoreConcorso{
+    private List<Concorso> concorsi;
+    aggiungiConcorso()
+    cercaConcorso()
+    stampaConcorso()
+    salvaConcorso()
+    creaConcorso()
+}
 @enduml
