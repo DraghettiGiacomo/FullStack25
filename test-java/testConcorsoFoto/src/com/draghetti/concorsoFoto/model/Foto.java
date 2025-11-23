@@ -52,10 +52,6 @@ public class Foto implements Serializable {
 
     @Override
     public String toString() {
-        return "Foto:" +
-                "title='" + title + '\'' +
-                ", descrizione='" + descrizione + '\'' +
-                ", dataInvio=" + dataInvio +
-                ", autore=" + autore;
+        return "Foto: " +  title + ", \n" + descrizione + "\n" + dataInvio + ", " + autore;
     }
 }

@@ -8,7 +8,6 @@ public class RegolaMista implements Valutazione{
 
     @Override
     public void applicaEvento(Foto foto, String tipoEvento) {
-        // metà punti dalla popolarità, metà dalla giuria
         pop.applicaEvento(foto, tipoEvento);
         giuria.applicaEvento(foto, tipoEvento);
     }

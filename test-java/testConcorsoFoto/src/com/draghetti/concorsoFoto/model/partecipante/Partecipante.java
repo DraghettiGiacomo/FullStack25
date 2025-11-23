@@ -36,7 +36,7 @@ public abstract class Partecipante implements Serializable {
     public void aggiungiPunti(int punti) {
         this.punteggio += punti;
     }
-    public abstract String getDescrizione();
+    public abstract String getDescrizione(); //ritorno i dettagli delle sottoclassi (Fotografo/Collettivo)
 
     @Override
     public String toString() {
